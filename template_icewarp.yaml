@@ -1,0 +1,1795 @@
+zabbix_export:
+  version: '6.2'
+  date: '2022-08-01T09:07:37Z'
+  template_groups:
+    -
+      uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    -
+      uuid: bec31356726648008be0582358a2a3bd
+      template: 'IceWarp by SNMP'
+      name: 'IceWarp by SNMP'
+      description: |
+        Monitoring IceWarp mail server.
+        
+        SNMP in IceWarp: https://support.icewarp.com/hc/en-us/articles/115001343547-SNMP-In-Icewarp
+        
+        Made by Petr Mrázek
+        https://github.com/mrazekpetr/Zabbix-Templates
+      groups:
+        -
+          name: Templates/Applications
+      items:
+        -
+          uuid: 956fb922700149ef836c58e0dfe2f127
+          name: 'IceWarp - Control actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.7
+          key: svcClientControl
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 76d8297ea3cc4f0194fe9109a1ae3896
+          name: 'IceWarp - FTP actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.6
+          key: svcClientFTP
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 2eaa0e3622c840b6bd5cb4057db8654d
+          name: 'IceWarp - GW actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.5
+          key: svcClientGW
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: fb9de5c6cb4b4fc794ac1e466a67d217
+          name: 'IceWarp - IM actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.4
+          key: svcClientIM
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 07a9bff9fdd1473fafb0e5d94bd71157
+          name: 'IceWarp - IMAP actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.3
+          key: svcClientIMAP
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: ef65d57bc2b246b6bb731fd841766e26
+          name: 'IceWarp - Control client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.7
+          key: svcClientInDataControl
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 6479bd7f00424dd5b21e314e0213667c
+          name: 'IceWarp - FTP client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.6
+          key: svcClientInDataFTP
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 3e157137be9947b08961a1258d7bab79
+          name: 'IceWarp - GW client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.5
+          key: svcClientInDataGW
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 38496f0266f8443bb769d4e0cffcad4d
+          name: 'IceWarp - IM client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.4
+          key: svcClientInDataIM
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 243c3860df024466a6bee751198d01da
+          name: 'IceWarp - IMAP client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.3
+          key: svcClientInDataIMAP
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: 50adf5469960495d8db92bc1f648cb52
+          name: 'IceWarp - POP3 client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.2
+          key: svcClientInDataPOP3
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 4dcaa3b06a294eb88025a061e7cb06f2
+          name: 'IceWarp - SMTP client data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.7.1
+          key: svcClientInDataSMTP
+          units: B
+          description: 'Amount of data received during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: f47c64ebd6e048ffa8fa8cc7da0e4683
+          name: 'IceWarp - Control client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.7
+          key: svcClientOutDataControl
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: e5f420ff435648dd9b41b48bd41c5b1b
+          name: 'IceWarp - FTP client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.6
+          key: svcClientOutDataFTP
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 410a56fb638f4de0beb8025f5a499fc3
+          name: 'IceWarp - GW client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.5
+          key: svcClientOutDataGW
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 612af53a925b436d9dec6d48da10e1ed
+          name: 'IceWarp - IM client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.4
+          key: svcClientOutDataIM
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 99d48f3d293c4c5abd40d49c55fb9cfc
+          name: 'IceWarp - IMAP client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.3
+          key: svcClientOutDataIMAP
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: 8dd505b3345e4204bdffea9e9f889cb1
+          name: 'IceWarp - POP3 client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.2
+          key: svcClientOutDataPOP3
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: a242e2f7262440e0a8805629a000e7ec
+          name: 'IceWarp - SMTP client data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.6.1
+          key: svcClientOutDataSMTP
+          units: B
+          description: 'Amount of data sent out during client sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: a68a04129cc04404a7bd89e44a070392
+          name: 'IceWarp - Control maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.7
+          key: svcClientPeakControl
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 75ef5a6d8ecd4ca492f6e5e2ad523a61
+          name: 'IceWarp - FTP maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.6
+          key: svcClientPeakFTP
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: cf7e0fd47ad44858b022d70009d2655c
+          name: 'IceWarp - GW maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.5
+          key: svcClientPeakGW
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 630d7cde3a2c44ccb2788b863071d878
+          name: 'IceWarp - IM maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.4
+          key: svcClientPeakIM
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 0b3ea7e04223459f974f48c20aac9004
+          name: 'IceWarp - IMAP maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.3
+          key: svcClientPeakIMAP
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: c57e2b7465024d78b9414006f368a43e
+          name: 'IceWarp - POP3 maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.2
+          key: svcClientPeakPOP3
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 9d36f4eaa7b44d78b0f0b99da803e6ea
+          name: 'IceWarp - SMTP maximal concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.11.1
+          key: svcClientPeakSMTP
+          description: 'Maximal number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 7f79893a48b54a328aa0b2350b5025f3
+          name: 'IceWarp - POP3 actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.2
+          key: svcClientPOP3
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 0d8dfcf4312349e195ae4046828354aa
+          name: 'IceWarp - SMTP actual concurent client sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.10.1
+          key: svcClientSMTP
+          description: 'Actual number of concurent client sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: f2acba767ee64d37996daa2fc8ad50d4
+          name: 'IceWarp - Control service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.7
+          key: svcRunningControl
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+          triggers:
+            -
+              uuid: ee3faa1ccde542e8b74ac9b3724898ab
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningControl))=0'
+              name: 'IceWarp - Control service is down'
+              priority: DISASTER
+              description: 'IceWarp - Control service is down'
+            -
+              uuid: 84f53621cf4949f6b731b97c0840c80f
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningControl))=0'
+              name: 'IceWarp - SMTP service is down'
+              priority: DISASTER
+              description: 'IceWarp - SMTP service is down'
+        -
+          uuid: 100d0ee2d7684a1bbca11c0331c2f4ae
+          name: 'IceWarp - FTP service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.6
+          key: svcRunningFTP
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+          triggers:
+            -
+              uuid: 35a58a50fd3e46758380a5c4fcc9e39b
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningFTP))=0'
+              name: 'IceWarp - FTP service is down'
+              status: DISABLED
+              priority: DISASTER
+              description: 'IceWarp - FTP service is down'
+        -
+          uuid: fe67336eb7844aaf855513eaf69e3480
+          name: 'IceWarp - GW service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.5
+          key: svcRunningGW
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+          triggers:
+            -
+              uuid: e212b6596cb04b558c22059a5293aa96
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningGW))=0'
+              name: 'IceWarp - GW service is down'
+              priority: DISASTER
+              description: 'IceWarp - GW service is down'
+        -
+          uuid: 1bcd76afdbae45ee8a78a266193f0594
+          name: 'IceWarp - IM service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.4
+          key: svcRunningIM
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+          triggers:
+            -
+              uuid: ebd506f5bfb34cebb6ce9f9e7dc7f7d1
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningIM))=0'
+              name: 'IceWarp - IM service is down'
+              priority: DISASTER
+              description: 'IceWarp - IM service is down'
+        -
+          uuid: 1c81f452d7764c1b85c63a0e233b26eb
+          name: 'IceWarp - IMAP service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.3
+          key: svcRunningIMAP
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+          triggers:
+            -
+              uuid: 2a8803a864104184ad7eca5b72c5800d
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningIMAP))=0'
+              name: 'IceWarp - IMAP service is down'
+              priority: DISASTER
+              description: 'IceWarp - IMAP service is down'
+        -
+          uuid: 70f27ecce6314a1397113fb5512b692e
+          name: 'IceWarp - POP3 service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.2
+          key: svcRunningPOP3
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+          triggers:
+            -
+              uuid: d6ec2fd677ab40ecb8c85d62d6f65d4a
+              expression: 'abs(last(/IceWarp by SNMP/svcRunningPOP3))=0'
+              name: 'IceWarp - POP3 service is down'
+              priority: DISASTER
+              description: 'IceWarp - POP3 service is down'
+        -
+          uuid: c47f37153679464da97b07e0b5b9e17e
+          name: 'IceWarp - SMTP service is running'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.2.1
+          key: svcRunningSMTP
+          valuemap:
+            name: serviceRunning
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 9f9ddbd2f0f1458c98f96b3a5867c4ae
+          name: 'IceWarp - Control all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.7
+          key: svcServerConnsControl
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: d0ba947b870b496390a92153f829d450
+          name: 'IceWarp - FTP all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.6
+          key: svcServerConnsFTP
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: e381427d937542e19fd60f630a7864ca
+          name: 'IceWarp - GW all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.5
+          key: svcServerConnsGW
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 611ddc9796fa48a09e05fe57c370f472
+          name: 'IceWarp - IM all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.4
+          key: svcServerConnsIM
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 59fc3f8c89204221830f69c233ceca5c
+          name: 'IceWarp - IMAP all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.3
+          key: svcServerConnsIMAP
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: ad8e6beaf7294f4ea681df92a22db141
+          name: 'IceWarp - POP3 all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.2
+          key: svcServerConnsPOP3
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 795df4893c3b4f918d63648b6be656e7
+          name: 'IceWarp - SMTP all historical sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.12.1
+          key: svcServerConnsSMTP
+          description: 'Number of all historical sessions (client + server)'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 56464f2a638c40a390ad20bba5b398e8
+          name: 'IceWarp - Control actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.7
+          key: svcServerControl
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: e92d1986477240db935dd57a89875589
+          name: 'IceWarp - FTP actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.6
+          key: svcServerFTP
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 92f36d34faa34c788d6d84947ce6c1b8
+          name: 'IceWarp - GW actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.5
+          key: svcServerGW
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 7d7e211903d24b79bddaa7768d83a9db
+          name: 'IceWarp - IM actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.4
+          key: svcServerIM
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: e62a4a07f21b40019aa8c63783b00afd
+          name: 'IceWarp - IMAP actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.3
+          key: svcServerIMAP
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: 39867325f86e465081fc80e307881aa6
+          name: 'IceWarp - Control server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.7
+          key: svcServerInDataControl
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 4067a9405ba140f6b854f5c01343ef1e
+          name: 'IceWarp - FTP server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.6
+          key: svcServerInDataFTP
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: ef7a7b78be524fd797a9e82f48e247b0
+          name: 'IceWarp - GW server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.5
+          key: svcServerInDataGW
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 2d25b40004a240a1afe2925865d26ce5
+          name: 'IceWarp - IM server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.4
+          key: svcServerInDataIM
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: d644bfa7efa7440d924617d807463f52
+          name: 'IceWarp - IMAP server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.3
+          key: svcServerInDataIMAP
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: 6a9fc98f87a54b8590e4232466c20e14
+          name: 'IceWarp - POP3 server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.2
+          key: svcServerInDataPOP3
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: bec9c643793e4109a527c0db75076d4e
+          name: 'IceWarp - SMTP server data received'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.5.1
+          key: svcServerInDataSMTP
+          units: B
+          description: 'Amount of data received during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: f6fb25bad7184b25846c06557f3c1e69
+          name: 'IceWarp - Control server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.7
+          key: svcServerOutDataControl
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 290ad7872108401bac8ce094d1b7dea3
+          name: 'IceWarp - FTP server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.6
+          key: svcServerOutDataFTP
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: daa08307f8f048739d1a1aaa735f7f94
+          name: 'IceWarp - GW server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.5
+          key: svcServerOutDataGW
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 8990083001c94bbfb9fc75c7330fdf3f
+          name: 'IceWarp - IM server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.4
+          key: svcServerOutDataIM
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: b03d919e03c046678b672adcb6e30116
+          name: 'IceWarp - IMAP server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.3
+          key: svcServerOutDataIMAP
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: dcd3c4ca62fc4587a32517a948c55bd8
+          name: 'IceWarp - POP3 server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.2
+          key: svcServerOutDataPOP3
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: cb9eb4509b244d0796847d4f6f179b55
+          name: 'IceWarp - SMTP server data sent'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.4.1
+          key: svcServerOutDataSMTP
+          units: B
+          description: 'Amount of data sent out during server sessions'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: ba0869cfba2d40ac8e250cda6139d26e
+          name: 'IceWarp - Control maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.7
+          key: svcServerPeakControl
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 780ceeea23224de5b8220261bb1c07a8
+          name: 'IceWarp - FTP maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.6
+          key: svcServerPeakFTP
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: a576fb3d466f46a9b56f2c056179f987
+          name: 'IceWarp - GW maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.5
+          key: svcServerPeakGW
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: dd3c732b7fb9483bb765e1241f54c1b2
+          name: 'IceWarp - IM maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.4
+          key: svcServerPeakIM
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: 7320c950ef7d4a5ca4b3b142525f892a
+          name: 'IceWarp - IMAP maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.3
+          key: svcServerPeakIMAP
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: 76407e1a0b724839b52b550c9179f9a7
+          name: 'IceWarp - POP3 maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.2
+          key: svcServerPeakPOP3
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 27cf3f65e0604b4499d8c81d7f5b3c3a
+          name: 'IceWarp - SMTP maximal concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.9.1
+          key: svcServerPeakSMTP
+          description: 'Maximal number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 81c90d738315479e9442ea011aec04d4
+          name: 'IceWarp - POP3 actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.2
+          key: svcServerPOP3
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 7aaed057e15449d6b68b938b6af4e157
+          name: 'IceWarp - SMTP actual concurent server sessions'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.8.1
+          key: svcServerSMTP
+          description: 'Actual number of concurent server sessions'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 0ecf268e6f094d95b2a8da43b0601617
+          name: 'IceWarp - Failed - Rules'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.23.1
+          key: svcSMTPFailedBWFilter
+          units: msg
+          description: 'Number of failed messages filtered by rules'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 02f1dc0bfe6b4364aef05ff18f305d99
+          name: 'IceWarp - Failed - Content filter'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.21.1
+          key: svcSMTPFailedCF
+          units: msg
+          description: 'Number of failed messages filtered by content filters'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 063b0ad3a3224fb686d0ee7923763e60
+          name: 'IceWarp - Failed - DNSBL'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.24.1
+          key: svcSMTPFailedDNSBL
+          units: msg
+          description: 'Number of failed messages filtered by DNSBL'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: ac56621468754672874c9eb2e2ff753e
+          name: 'IceWarp - Failed - Spam Marked'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.26.1
+          key: svcSMTPFailedSpam
+          units: msg
+          description: 'Number of messages evaluated as SPAM and accepted (does not include rejected SPAM)'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: ba9b123f3ce74d238253e3746ebb76fb
+          name: 'IceWarp - Failed - External filter'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.22.1
+          key: svcSMTPFailedStaticFilter
+          units: msg
+          description: 'Number of failed messages filtered by external filters'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 6ede670fa79b42b39dda5f26dbb2bcfe
+          name: 'IceWarp - Failed - Intrusion Prevention'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.25.1
+          key: svcSMTPFailedTarpit
+          units: msg
+          description: 'Number of failed messages braking intrusion prevention rules'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: bb0bb904ca6d4219a3600436eed47345
+          name: 'IceWarp - Failed - Too data'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.19.1
+          key: svcSMTPFailedTooData
+          units: msg
+          description: 'SMTP failures (Too Data)'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: c77d7d76b40243a0a9ceb2c35eda71ac
+          name: 'IceWarp - Failed - Virus'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.20.1
+          key: svcSMTPFailedVirus
+          units: msg
+          description: 'Number of failed messages with a virus recognized'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 68f1feba889344eda1a5d451d29ef7ad
+          name: 'IceWarp - Failed - Sending'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.18.1
+          key: svcSMTPMessageFailed
+          units: msg
+          description: 'Number of failed messages during sending'
+          tags:
+            -
+              tag: icewarp
+              value: failed
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 41052ff4cb7f45f6b958869b97d34cb1
+          name: 'IceWarp - Received messages'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.17.1
+          key: svcSMTPMessageIn
+          units: msg
+          description: 'Number of messages received by the server'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: messages
+        -
+          uuid: 141b5b82b7384d7e9741f09ecc15747a
+          name: 'IceWarp - Sent messages'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.16.1
+          key: svcSMTPMessageOut
+          units: msg
+          description: 'Number of messages send out from the server'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: messages
+        -
+          uuid: c21179588cb44fa49e1986d8001bfde9
+          name: 'IceWarp - Control service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.7
+          key: svcUpTimeControl
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: control
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: ff3b52b79e2c408aa2cca1d91043a413
+          name: 'IceWarp - FTP service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.6
+          key: svcUpTimeFTP
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: ftp
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 515baf3752314a59ad77c6da6a661879
+          name: 'IceWarp - GW service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.5
+          key: svcUpTimeGW
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: gw
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 187b7f66d2dc4a118c3e77f6b0d86e5d
+          name: 'IceWarp - IM service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.4
+          key: svcUpTimeIM
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: im
+        -
+          uuid: cee69cef771e4405a69b53c8b69539f9
+          name: 'IceWarp - IMAP service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.3
+          key: svcUpTimeIMAP
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: imap
+        -
+          uuid: eb1def5641754332b23d89c5c478a63e
+          name: 'IceWarp - POP3 service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.2
+          key: svcUpTimePOP3
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: pop3
+        -
+          uuid: 47db3bdb4a8f4c658ca64c7f8ed96e8a
+          name: 'IceWarp - SMTP service uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.2.3.1
+          key: svcUpTimeSMTP
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+            -
+              tag: icewarp
+              value: smtp
+        -
+          uuid: 6ee1612db9da4ac3916a8001d7d786a1
+          name: 'IceWarp - System description'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.1.1
+          key: sysDesc
+          delay: 1h
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: 911e78d664f14ebdb85b8539db1aceb8
+          name: 'IceWarp - Uptime'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.1.3
+          key: sysUpTime
+          units: s
+          description: 'Service running time'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+        -
+          uuid: d43d736250b24832ab13454080b5dd9f
+          name: 'IceWarp - Version'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.23736.1.2.1.1.1.8
+          key: sysVersion
+          delay: 1h
+          trends: '0'
+          value_type: TEXT
+          tags:
+            -
+              tag: icewarp
+              value: icewarp
+      tags:
+        -
+          tag: control
+          value: control
+        -
+          tag: email
+          value: email
+        -
+          tag: ftp
+          value: ftp
+        -
+          tag: gw
+          value: gw
+        -
+          tag: icewarp
+          value: icewarp
+        -
+          tag: im
+          value: im
+        -
+          tag: imap
+          value: imap
+        -
+          tag: pop3
+          value: pop3
+        -
+          tag: service
+          value: service
+        -
+          tag: smtp
+          value: smtp
+      valuemaps:
+        -
+          uuid: 5dc0a841939f440d978c958e2b52da16
+          name: serviceRunning
+          mappings:
+            -
+              value: '0'
+              newvalue: Down
+            -
+              value: '1'
+              newvalue: Up
+  graphs:
+    -
+      uuid: 865eb892271e4f7ca2cc59caca90aaec
+      name: 'IceWarp - Actual concurent sessions'
+      graph_items:
+        -
+          color: 1A7C11
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientControl
+        -
+          sortorder: '1'
+          color: F63100
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerControl
+        -
+          sortorder: '2'
+          color: 2774A4
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientFTP
+        -
+          sortorder: '3'
+          color: A54F10
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerFTP
+        -
+          sortorder: '4'
+          color: FC6EA3
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientGW
+        -
+          sortorder: '5'
+          color: 6C59DC
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerGW
+        -
+          sortorder: '6'
+          color: AC8C14
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientIM
+        -
+          sortorder: '7'
+          color: 611F27
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerIM
+        -
+          sortorder: '8'
+          color: F230E0
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientIMAP
+        -
+          sortorder: '9'
+          color: 5CCD18
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerIMAP
+        -
+          sortorder: '10'
+          color: BB2A02
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientPOP3
+        -
+          sortorder: '11'
+          color: 5A2B57
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerPOP3
+        -
+          sortorder: '12'
+          color: 89ABF8
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcClientSMTP
+        -
+          sortorder: '13'
+          color: 7EC25C
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcServerSMTP
+    -
+      uuid: f437ac72ad6c4aaeae13f24db7e485b4
+      name: 'IceWarp - Antispam + Antivirus'
+      graph_items:
+        -
+          color: 1A7C11
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedCF
+        -
+          sortorder: '1'
+          color: F63100
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedDNSBL
+        -
+          sortorder: '2'
+          color: 2774A4
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedStaticFilter
+        -
+          sortorder: '3'
+          color: A54F10
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedTarpit
+        -
+          sortorder: '4'
+          color: FC6EA3
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedBWFilter
+        -
+          sortorder: '5'
+          color: 6C59DC
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedSpam
+        -
+          sortorder: '6'
+          color: AC8C14
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedTooData
+        -
+          sortorder: '7'
+          color: 611F27
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPFailedVirus
+    -
+      uuid: 289e98afaac348f7a3635fffb5def786
+      name: 'IceWarp - Received / Sent messages'
+      graph_items:
+        -
+          color: 1A7C11
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPMessageIn
+        -
+          sortorder: '1'
+          color: F63100
+          calc_fnc: ALL
+          item:
+            host: 'IceWarp by SNMP'
+            key: svcSMTPMessageOut
